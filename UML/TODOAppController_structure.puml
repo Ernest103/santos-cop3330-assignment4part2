@@ -68,7 +68,7 @@ config=StructureConfiguration;
     "showPackageLevels": 2,
     "showDetailedClassStructure": true
   },
-  "rootClass": "ucf.assignments.TodoList"
+  "rootClass": "ucf.assignments.TODOAppController"
 }
 diagram meta data end '/
 
@@ -86,20 +86,40 @@ subgraph cluster_1749373766 {
 	fillcolor="#ececec"
 	style=filled
    
-   TodoList1014114800[
+   TODOAppController1014114800[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)TodoList</TD></TR>
+<TR><TD ALIGN="LEFT" >(C)TODOAppController</TD></TR>
 <HR/>
-<TR><TD ALIGN="LEFT" >-   tasks: ArrayList&lt;task&gt; [0..*]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   title: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   curr_list: ComboBox&lt;String&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   data_table: TableView&lt;Task&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   description: TableColumn&lt;Task, String&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   due_date: TableColumn&lt;Task, String&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   list_names: ObservableList&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   lists: ArrayList&lt;TodoList&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   new_description: TextField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pick_due: DatePicker [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   status: TableColumn&lt;Task, String&gt; [0..1]</TD></TR>
 <HR/>
-<TR><TD ALIGN="LEFT" >- addItem(): String</TD></TR>
-<TR><TD ALIGN="LEFT" >- changeStatus(): boolean</TD></TR>
-<TR><TD ALIGN="LEFT" >- editItemDesc(): String</TD></TR>
-<TR><TD ALIGN="LEFT" >- editItemDueDate(): String</TD></TR>
-<TR><TD ALIGN="LEFT" >- exportTask()</TD></TR>
-<TR><TD ALIGN="LEFT" >- inportList()</TD></TR>
-<TR><TD ALIGN="LEFT" >- removeItem(): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># Add_Task_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># Delete_Task_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># List_changed()</TD></TR>
+<TR><TD ALIGN="LEFT" ># Mark_complete_pressed()</TD></TR>
+<TR><TD ALIGN="LEFT" ># createTask(Data: String[]): Task</TD></TR>
+<TR><TD ALIGN="LEFT" ># delete_list_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># edit_task_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># empty_list_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># findCurrentList(): TodoList</TD></TR>
+<TR><TD ALIGN="LEFT" ># initialize()</TD></TR>
+<TR><TD ALIGN="LEFT" ># load_list_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># new_list_pressed(event: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># open_help_pane()</TD></TR>
+<TR><TD ALIGN="LEFT" ># reLoadTable()</TD></TR>
+<TR><TD ALIGN="LEFT" ># reloadLists()</TD></TR>
+<TR><TD ALIGN="LEFT" ># rename_list_pressed()</TD></TR>
+<TR><TD ALIGN="LEFT" ># save_list_pressed()</TD></TR>
+<TR><TD ALIGN="LEFT" ># show_all_pressed()</TD></TR>
+<TR><TD ALIGN="LEFT" ># show_complete()</TD></TR>
+<TR><TD ALIGN="LEFT" ># show_incomplete()</TD></TR>
 </TABLE>>
 	style=filled
 	margin=0
@@ -107,9 +127,9 @@ subgraph cluster_1749373766 {
 	fillcolor="#FFFFFF"
 ];
 
-task1014114800[
+Task1014114800[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)task</TD></TR>
+<TR><TD ALIGN="LEFT" >(C)Task</TD></TR>
 <HR/>
 <TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
 <TR><TD ALIGN="LEFT" >-   dueDate: String [0..1]</TD></TR>
@@ -122,10 +142,36 @@ task1014114800[
 	shape=plaintext
 	fillcolor="#FFFFFF"
 ];
+
+TodoList1014114800[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TodoList</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   Tasks: ObservableList&lt;Task&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   title: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ changeStatus(toUpdate: Task): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setUpExport(): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
 } 
 
 'edges    
-TodoList1014114800 -> task1014114800[label="tasks
+TODOAppController1014114800 -> Task1014114800[label="data_table
+[0..1]"];
+TODOAppController1014114800 -> Task1014114800[label="description
+[0..1]"];
+TODOAppController1014114800 -> Task1014114800[label="due_date
+[0..1]"];
+TODOAppController1014114800 -> Task1014114800[label="status
+[0..1]"];
+TODOAppController1014114800 -> TodoList1014114800[label="lists
+[0..*]"];
+TodoList1014114800 -> Task1014114800[label="Tasks
 [0..*]"];
     
 }

@@ -64,6 +64,8 @@ public class TODOAppController {
         data_table.refresh();
     }
 
+
+
     @FXML
     void show_complete()
     {
@@ -81,6 +83,8 @@ public class TODOAppController {
         }
         data_table.refresh();
     }
+
+
 
     @FXML
     void show_incomplete()
@@ -100,6 +104,8 @@ public class TODOAppController {
         data_table.refresh();
     }
 
+
+
     @FXML
     void Mark_complete_pressed(){
         Task temp = data_table.getSelectionModel().getSelectedItem();
@@ -115,6 +121,7 @@ public class TODOAppController {
             }
         }
     }
+
 
 
     @FXML
@@ -140,6 +147,8 @@ public class TODOAppController {
 
     }
 
+
+
     @FXML
     void rename_list_pressed() {
         TodoList temp = findCurrentList();
@@ -161,6 +170,8 @@ public class TODOAppController {
         }
     }
 
+
+
     @FXML
     void new_list_pressed(ActionEvent event) {
             TextInputDialog dialog = new TextInputDialog();
@@ -180,6 +191,8 @@ public class TODOAppController {
                 System.out.println("string was empty");
 
     }
+
+
 
     @FXML
     void Add_Task_pressed(ActionEvent event)
@@ -210,6 +223,8 @@ public class TODOAppController {
 
     }
 
+
+
     @FXML
     void Delete_Task_pressed(ActionEvent event)
     {
@@ -221,6 +236,8 @@ public class TODOAppController {
             reLoadTable();
         }
     }
+
+
 
     @FXML
     void edit_task_pressed(ActionEvent event)
@@ -247,6 +264,8 @@ public class TODOAppController {
         data_table.refresh();
     }
 
+
+
     @FXML
     void empty_list_pressed(ActionEvent event)
     {
@@ -263,6 +282,8 @@ public class TODOAppController {
         }
         data_table.refresh();
     }
+
+
 
     @FXML
     void load_list_pressed(ActionEvent event) throws FileNotFoundException {
@@ -294,6 +315,8 @@ public class TODOAppController {
         reloadLists();
     }
 
+
+
     @FXML
     void save_list_pressed() throws IOException {
         DirectoryChooser dc = new DirectoryChooser();
@@ -319,6 +342,8 @@ public class TODOAppController {
         }
     }
 
+
+
     @FXML
     void open_help_pane()
     {
@@ -339,6 +364,7 @@ public class TODOAppController {
 
     //******************helper**************//
 
+    //Returns the list which name is currently displayed or the currently working list
     TodoList findCurrentList()
     {
         for(TodoList list : lists)
@@ -350,6 +376,8 @@ public class TODOAppController {
         return null;
     }
 
+
+    //Reloads the drop down list containing the names of the todo lists
     void reloadLists()
     {
         for(TodoList list : lists)
@@ -361,6 +389,7 @@ public class TODOAppController {
 
         curr_list.setItems(list_names);
     }
+
 
     void reLoadTable()
     {
@@ -378,6 +407,8 @@ public class TODOAppController {
         }
     }
 
+
+    //Helper Function for using the data read from a file to create a new task object
     Task createTask(String[] Data){
         Task createdTask;
 

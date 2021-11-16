@@ -18,12 +18,6 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    private String formatDate(String unFormatted)
-    {
-        return null;
-    }
-
-
     //*******Getters and Setters**********//
 
     public String getDescription() {

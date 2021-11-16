@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'idea'
     id 'org.openjfx.javafxplugin' version '0.0.10'
 }
 
@@ -12,7 +13,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.7.1'
+    junitVersion = '5.8.1'
 }
 
 sourceCompatibility = '16'
@@ -24,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'ucf.assignments'
-    mainClass = 'ucf.assignments.HelloApplication'
+    mainClass = 'ucf.assignments.App'
 }
 
 javafx {
@@ -34,10 +35,20 @@ javafx {
 
 dependencies {
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
 test {
     useJUnitPlatform()
-}
+
+    doFirst {
+        jvmArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.controls',
+                '--add-modules', 'javafx.fxml',
+                '--add-modules', 'javafx.web',
+                '--add-modules', 'javafx.graphics',
+                '--add-modules', 'javafx.media'
+        ]
+    }}

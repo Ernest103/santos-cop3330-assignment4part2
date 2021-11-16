@@ -1,5 +1,7 @@
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ucf.assignments.Task;
 
 /*
  *  UCF COP3330 Fall 2021 Assignment 4 Solution
@@ -16,7 +18,10 @@ public class taskTest {
      */
     @Test
     public void testGetDescription() throws Exception {
-        //TODO: Test goes here...
+        Task testTask = new Task("Test Description", "2021-11-15");
+        String check = "Test Description";
+
+        Assertions.assertEquals(check, testTask.getDescription());
     }
 
     /**
@@ -26,7 +31,11 @@ public class taskTest {
      */
     @Test
     public void testSetDescription() throws Exception {
-        //TODO: Test goes here...
+        Task testTask = new Task("Test Description", "2021-11-15");
+        String check = "New Description";
+        testTask.setDescription(check);
+
+        Assertions.assertEquals(check, testTask.getDescription());
     }
 
     /**
@@ -36,7 +45,9 @@ public class taskTest {
      */
     @Test
     public void testIsStatus() throws Exception {
-        //TODO: Test goes here...
+        Task testTask = new Task("Test Description", "2021-11-15");
+
+        Assertions.assertTrue(testTask.isStatusbool());
     }
 
     /**
@@ -46,8 +57,10 @@ public class taskTest {
      */
     @Test
     public void testSetStatus() throws Exception {
-        //TODO: Test goes here...
-    }
+        Task testTask = new Task("Test Description", "2021-11-15");
+        testTask.setStatus(false);
+
+        Assertions.assertFalse(testTask.isStatusbool());    }
 
     /**
      *
@@ -56,7 +69,10 @@ public class taskTest {
      */
     @Test
     public void testGetDueDate() throws Exception {
-        //TODO: Test goes here...
+        Task testTask = new Task("Test Description", "2021-11-15");
+        String check = "2021-11-15";
+
+        Assertions.assertEquals(check, testTask.getDueDate());
     }
 
     /**
@@ -66,18 +82,11 @@ public class taskTest {
      */
     @Test
     public void testSetDueDate() throws Exception {
-        //TODO: Test goes here...
-    }
+        Task testTask = new Task("Test Description", "2021-11-15");
+        String check = "2021-12-12";
+        testTask.setDueDate(check);
 
-
-    /**
-     *
-     * Method: formatDate(String unFormatted)
-     *
-     */
-    @Test
-    public void testFormatDate() throws Exception {
-        //TODO: Test goes here...
+        Assertions.assertEquals(check, testTask.getDueDate());
     }
 
 }
