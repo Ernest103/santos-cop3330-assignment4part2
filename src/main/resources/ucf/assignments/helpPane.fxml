@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="412.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.HelpPaneController">
+   <children>
+      <VBox alignment="CENTER_LEFT" layoutX="7.0" layoutY="32.0" prefHeight="489.0" prefWidth="706.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="63.0" prefWidth="706.0" text="- Start Working: In order to start using the app you must first create a new list, to which you can then add task. Created List can be selected and iterated through the drop down menu above the table" wrapText="true" />
+            <Label prefHeight="63.0" prefWidth="706.0" text="- Once You have a List created and have added tasks you may use the buttons below the table displaying your tasks edit your tasks or add new tasks to your list." wrapText="true" />
+            <Label prefHeight="63.0" text="- The Menu Bar on the top of the program will allow you to manipulate the Lists Themselves, Action include loading a list, saving a list, renaming, deleting, and emptying lists." wrapText="true" />
+            <Label prefHeight="63.0" prefWidth="706.0" text="- When Saving the list it'll be saved as a CSV file and ready to be inported back into the program in future compiles." />
+            <Label layoutX="10.0" layoutY="334.0" prefHeight="63.0" prefWidth="706.0" text="- A Sample Import is saved in the root-Files." />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="283.0" />
+                  <Button fx:id="ok_button" mnemonicParsing="false" onAction="#ok_button_pressed" text="OK" />
+                  <Pane prefHeight="100.0" prefWidth="283.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
